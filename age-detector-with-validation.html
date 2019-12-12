@@ -1,0 +1,56 @@
+<html>
+<head>
+  <title>Age Detector</title>
+</head>
+<body>
+
+<!-- Below we're creating the body elements of our simple web-page. Note that all of these tags except the button are empty...we're simply creating these tags so our JavaScript code has something to manipulate. -->
+
+<h1></h1>
+<img>
+<p></p>
+<button>Change age</button>
+</body>
+
+<!-- Though this is an HTML document, the script tag tells the browser that what follows is JavaScript. -->
+
+<script>
+
+let myButton = document.querySelector('button');
+let myHeading = document.querySelector('h1');
+let myImage = document.querySelector('img');
+
+function setUserAge() {
+  let myAge = prompt('Please enter your age.');
+  let ageJudgment = "";
+  myImage.width = 400;
+  myImage.src = 'http://www.pngall.com/wp-content/uploads/2/Question-Mark-PNG-Picture.png';
+  // The if statement below checks to see if the user's input is not a number (isNaN) or is under 0. If so, we alert the user that they need to enter a valid number.
+  if (isNaN(myAge) || myAge < 0) {
+    myHeading.textContent = 'Input invalid. Please enter a positive integer.';
+  }
+  if (myAge >= 30 && myAge <= 121) {
+    ageJudgment = "You are not to be trusted.";
+    myImage.src = 'https://m.media-amazon.com/images/I/51CHQnTEzOL._SS500_.jpg';
+    myHeading.textContent = 'You say you are ' + myAge + ' years old. ' + ageJudgment;
+  }
+  if (myAge > 121) {
+    ageJudgment = "That's not realistic.";
+    myImage.src = 'https://m.media-amazon.com/images/I/51CHQnTEzOL._SS500_.jpg';
+    myHeading.textContent = 'You say you are ' + myAge + ' years old. ' + ageJudgment;
+  }
+  if (myAge < 30 && myAge >= 0) {
+    ageJudgment = "Congrats! You're young.";
+    myImage.src = 'https://www.clickorlando.com/resizer/iJ-nzxuHEbC-74_Lj73By_X9S5Y=/640x360/smart/arc-anglerfish-arc2-prod-gmg.s3.amazonaws.com/public/5AL7JO6QSNA4HLWRWH5G6ADP7Y.jpg';
+    myHeading.textContent = 'You say you are ' + myAge + ' years old. ' + ageJudgment;
+  }
+  
+}
+
+myButton.onclick = function() {
+  setUserAge();
+}  
+
+</script>
+
+</html>
