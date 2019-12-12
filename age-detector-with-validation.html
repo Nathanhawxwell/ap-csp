@@ -25,8 +25,8 @@ function setUserAge() {
   let ageJudgment = "";
   myImage.width = 400;
   myImage.src = 'http://www.pngall.com/wp-content/uploads/2/Question-Mark-PNG-Picture.png';
-  // The if statement below checks to see if the user's input is not a number (isNaN) or is under 0. If so, we alert the user that they need to enter a valid number.
-  if (isNaN(myAge) || myAge < 0) {
+  // The if statement below checks to see if the user's input is not a number (isNaN), is under 1, or there is no data. If so, we alert the user that they need to enter a valid number.
+  if (isNaN(myAge) || myAge <= 0 || myAge === null || myAge === undefined ) {
     myHeading.textContent = 'Input invalid. Please enter a positive integer.';
   }
   if (myAge >= 30 && myAge <= 121) {
@@ -39,7 +39,7 @@ function setUserAge() {
     myImage.src = 'https://m.media-amazon.com/images/I/51CHQnTEzOL._SS500_.jpg';
     myHeading.textContent = 'You say you are ' + myAge + ' years old. ' + ageJudgment;
   }
-  if (myAge < 30 && myAge >= 0) {
+  if (myAge < 30 && myAge >= 1) {
     ageJudgment = "Congrats! You're young.";
     myImage.src = 'https://www.clickorlando.com/resizer/iJ-nzxuHEbC-74_Lj73By_X9S5Y=/640x360/smart/arc-anglerfish-arc2-prod-gmg.s3.amazonaws.com/public/5AL7JO6QSNA4HLWRWH5G6ADP7Y.jpg';
     myHeading.textContent = 'You say you are ' + myAge + ' years old. ' + ageJudgment;
